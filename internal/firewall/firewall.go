@@ -50,24 +50,4 @@ func (f *Firewall) Authorized(rawAddrPort string) bool {
 	}
 
 	return false
-
-	/*
-		if !strings.Contains(ipAndPort, ":") {
-			return fmt.Errorf("no colon in remote address %q", ipAndPort)
-		}
-		parts := strings.Split(ipAndPort, ":")
-		rawIPAddr := strings.Join(parts[:len(parts)-1], ":")
-
-		ip := net.ParseIP(rawIPAddr)
-		if ip == nil {
-			return fmt.Errorf("failed to parse raw IP address %q", rawIPAddr)
-		}
-
-		for _, cidr := range cidrs {
-			if cidr.Contains(ip) {
-				return nil
-			}
-		}
-		return fmt.Errorf("IP address %v was not part of any allowed prefix", ip)
-	*/
 }

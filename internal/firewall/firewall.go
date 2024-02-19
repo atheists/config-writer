@@ -25,7 +25,7 @@ func New(raw string, logger *slog.Logger) (*Firewall, error) {
 			return nil, fmt.Errorf("parsing prefix %q: %w", rawPrefix, err)
 		}
 		prefixes = append(prefixes, prefix)
-		logger.Info(fmt.Sprintf("Parsed prefix %q", prefix))
+		logger.Info("Parsed prefix", "prefix", prefix)
 	}
 	return &Firewall{
 		allowedPrefixes: prefixes,
@@ -39,7 +39,7 @@ func (f *Firewall) Authorized(rawAddrPort string) bool {
 	}
 	addrPort, err := netip.ParseAddrPort(rawAddrPort)
 	if err != nil {
-		f.logger.Info(fmt.Sprintf("Rejecting malformed address %q", rawAddrPort))
+		f.logger.Info("Rejecting malformed address", "rawAddrPort",rawAddrPort))
 		return false
 	}
 

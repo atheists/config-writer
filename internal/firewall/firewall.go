@@ -39,7 +39,7 @@ func (f *Firewall) Authorized(rawAddrPort string) bool {
 	}
 	addrPort, err := netip.ParseAddrPort(rawAddrPort)
 	if err != nil {
-		f.logger.Info("Rejecting malformed address", "rawAddrPort",rawAddrPort))
+		f.logger.Info("Rejecting malformed address", "rawAddrPort", rawAddrPort)
 		return false
 	}
 

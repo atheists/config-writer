@@ -2,6 +2,7 @@ name: Build and deploy
 on: [push]
 jobs:
   build:
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-go@v5
@@ -9,6 +10,7 @@ jobs:
           go-version: '~1.21.7'
       - run: go build
   test:
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-go@v5

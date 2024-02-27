@@ -11,4 +11,4 @@ COPY --from=0 /src/config-writer /config-writer
 EXPOSE 3000
 ENTRYPOINT /config-writer
 
-USER 1001
+USER 1050
